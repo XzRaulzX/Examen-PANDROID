@@ -85,7 +85,6 @@
         android:id="@+id/btnCasilla1"
         android:layout_width="139dp"
         android:layout_height="83dp"
-        android:onClick="init"
         app:layout_constraintBottom_toTopOf="@+id/btnCasilla4"
         app:layout_constraintEnd_toEndOf="@+id/btnCasilla2"
         app:layout_constraintHorizontal_bias="0.034"
@@ -189,6 +188,18 @@
         app:layout_constraintStart_toEndOf="@+id/txtFicha"
         app:layout_constraintTop_toBottomOf="@+id/txtTiempo"
         app:layout_constraintVertical_bias="0.557"
+        app:srcCompat="@drawable/cuadroblanco" />
+
+    <ImageButton
+        android:id="@+id/btnComprobacion"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/cuadroblanco" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
