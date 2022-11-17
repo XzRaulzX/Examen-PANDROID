@@ -1,5 +1,6 @@
 package com.example.examen_raulantonioserra;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -36,11 +37,13 @@ public class Juego extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.juego);
         turno = findViewById(R.id.txtTurno);
         tiempo = findViewById(R.id.txtTiempo);
         ficha = findViewById(R.id.txtFicha);
+        DecideFichaJugador();
         //Llamamos a todos los botones y cuando clickemos en uno de ellos pasara a la funcion init una posicion para la litaBotones
         //Identificando que boton estamos pulsando
         CasillaComprobacion = findViewById(R.id.btnComprobacion);
@@ -144,7 +147,7 @@ public class Juego extends AppCompatActivity {
             }
         });
         listaBotones = new ImageButton[]{Casilla1, Casilla2, Casilla3, Casilla4, Casilla5, Casilla6, Casilla7, Casilla8, Casilla9};
-        DecideFichaJugador();
+
     }
 
 
@@ -171,7 +174,7 @@ public class Juego extends AppCompatActivity {
         System.out.println(b);
         if(listaBotones[b].getResources()==CasillaComprobacion.getResources()){
             if (fichadecidida == 1) {
-                listaBotones[b].setImageResource(R.drawable.circulo);
+                listaBotones[b].setImageResource(R.drawable.circulo2);
             } else {
                 listaBotones[b].setImageResource(R.drawable.equis);
             }
@@ -183,23 +186,27 @@ public class Juego extends AppCompatActivity {
 
 
     public void init(int numero) throws InterruptedException {
+
         if(listaBotones[numero].getResources()==CasillaComprobacion.getResources()){
             if (fichadecidida == 1) {
                 listaBotones[numero].setImageResource(R.drawable.equis);
                 System.out.println("equis pintada");
             } else {
-                listaBotones[numero].setImageResource(R.drawable.circulo);
+                listaBotones[numero].setImageResource(R.drawable.circulo2);
                 System.out.println("circulo pintada");
             }
 
             PonerFichaIA();
         }
-        else{
-            Toast.makeText(this, "Pulsa una casilla vacia", Toast.LENGTH_SHORT).show();
-        }
-
-
-
-
     }
+    public void reiniciar(View v){
+        for(int i=0;i<=listaBotones.length;i++){
+            listaBotones[i].setImageResource(R.drawable.cuadroblanco);
+        }
+    }
+    public void salir(View v){
+        Intent intent=new Intent(this, Login.class);
+        startActivity(intent);
+    }
+
 }
