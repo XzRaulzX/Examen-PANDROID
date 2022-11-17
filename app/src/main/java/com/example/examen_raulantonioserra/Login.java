@@ -24,12 +24,14 @@ public class Login extends AppCompatActivity {
 
     public void iniciar(View view) {
         if(usuario.getText().toString().equals(usuarioC) && contraseña.getText().toString().equals(contraseñaC)){
-            Intent intento= new Intent(this, MainActivity.class);
-            intento.putExtra("usuario",usuario.getText().toString());
-            intento.putExtra("contraseña",contraseña.getText().toString());
+            Intent intento1= new Intent(this, Instrucciones.class);
+            intento1.putExtra("usuario",usuario.getText().toString());
+            startActivityForResult(intento1,0);
 
         }else{
             Toast.makeText(this, "Contraseña o usuario incorrectas, Intentelo de nuevo", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 }
